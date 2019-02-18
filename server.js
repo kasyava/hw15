@@ -5,7 +5,6 @@ const app = express();
 const expressWs = require('express-ws')(app);
 const cors = require("cors");
 
-
 const PORT = 8000;
 
 app.use(cors());
@@ -14,7 +13,6 @@ app.use(express.json());
 
 const activeConnections = [];
 const paintPossition = [];
-
 
 app.ws('/chat', function (ws) {
 
