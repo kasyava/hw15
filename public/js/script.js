@@ -31,17 +31,12 @@ $(()=>{
 
     paintBoard.addEventListener('click', function(event) {
         let rect = paintBoard.getBoundingClientRect();
-        let xCorr = event.clientX - rect.left;
-        let yCorr = event.clientY - rect.top;
-        ctx.fillStyle = colorPicker.value;
-        let radius = radiusInput.value;
-
 
         const message = {
-            xCorr: xCorr,
-            yCorr: yCorr,
-            color: ctx.fillStyle,
-            radius: radius
+            xCorr: (event.clientX - rect.left),
+            yCorr: (event.clientY - rect.top),
+            color: colorPicker.value,
+            radius: radiusInput.value
         };
         websocket.send(JSON.stringify(message));
     }, false);
